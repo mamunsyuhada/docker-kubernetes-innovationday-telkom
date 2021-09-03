@@ -2,8 +2,13 @@ version: '3'
 services:
   redis-server:
     build: ./redis
+    container_name: redis-server
+    restart: always
   counter-number:
     build: ./count-number
-    restart: always
+    container_name: count-number
     ports: 
       - '4001:4001'
+    depends_on:
+      - redis-server
+    restart: always
