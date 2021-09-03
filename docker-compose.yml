@@ -1,0 +1,9 @@
+version: '3'
+services:
+  redis-server:
+    build: ./redis
+  counter-number:
+    build: ./count-number
+    restart: always
+    ports: 
+      - '4001:4001'
